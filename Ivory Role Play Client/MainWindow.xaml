@@ -85,11 +85,26 @@
             <Image Stretch="Fill" Source="D:\project\Ivory RP Client\Design\discord.png"></Image>
         </Button>
 
+        <Rectangle Height="54" Width="170" Grid.Column="0" Grid.Row="3" Fill="#258BD5" Grid.RowSpan="2" Margin="35,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Rectangle.Effect>
+                <DropShadowEffect ShadowDepth="0" Color="White" Opacity="0.6" BlurRadius="10"></DropShadowEffect>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Label Margin="35,0,0,0" Foreground="White" FontSize="18" FontFamily="Microsoft Sans Serif" Grid.Column="0" Grid.Row="3" Grid.RowSpan="2" Content="Сервер 1" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">
+            <Label.Effect>
+                <DropShadowEffect ShadowDepth="1" Color="White" Opacity="1" BlurRadius="10"/>
+            </Label.Effect>
+        </Label>
+
+        <Rectangle Grid.Column="0" Grid.Row="3" Grid.RowSpan="2" Fill=""></Rectangle>
+
         <Label Grid.Row="3" Foreground="White" FontSize="48" FontFamily="Microsoft Sans Serif" HorizontalAlignment="Center" Content="Мониторинг" Margin="76,0.4,203.5,40" Grid.ColumnSpan="2" Width="288">
             <Label.Effect>
                 <DropShadowEffect ShadowDepth="1" Color="White" Opacity="1" BlurRadius="10"/>
             </Label.Effect>
         </Label>
 
+        
+        
     </Grid>
 </Window>
