@@ -5,7 +5,85 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ivory_Role_Play_Client"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1000" ResizeMode="NoResize" WindowStyle="None">
+        Title="MainWindow" Height="600" Width="1000" ResizeMode="NoResize" WindowStyle="None" Loaded="Window_Loaded">
+
+    <Window.Resources>
+
+        <Style x:Key="SliderRepeatButton" TargetType="RepeatButton">
+            <Setter Property="SnapsToDevicePixels" Value="true" />
+            <Setter Property="OverridesDefaultStyle" Value="true" />
+            <Setter Property="IsTabStop" Value="false" />
+            <Setter Property="Focusable" Value="false" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RepeatButton">
+
+                        <Border  BorderThickness="1" BorderBrush="#3B3E51" Background="Transparent" Height="7"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="SliderRepeatButton1" TargetType="RepeatButton">
+            <Setter Property="SnapsToDevicePixels" Value="true" />
+            <Setter Property="OverridesDefaultStyle" Value="true" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RepeatButton">
+                        <Border SnapsToDevicePixels="True" Background="#35D945"  BorderThickness="0" Height="7"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="SliderThumb" TargetType="Thumb">
+            <Setter Property="SnapsToDevicePixels" Value="true" />
+            <Setter Property="OverridesDefaultStyle" Value="true" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Thumb">
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <ControlTemplate x:Key="Slider"  TargetType="Slider">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" MinHeight="{TemplateBinding MinHeight}" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Track Grid.Row="1" x:Name="PART_Track"   >
+                    <Track.DecreaseRepeatButton>
+                        <RepeatButton Style="{StaticResource SliderRepeatButton1}"  Command="Slider.DecreaseLarge" />
+                    </Track.DecreaseRepeatButton>
+                    <Track.Thumb>
+                        <Thumb Style="{StaticResource SliderThumb}"  />
+                    </Track.Thumb>
+                    <Track.IncreaseRepeatButton>
+                        <RepeatButton Style="{StaticResource SliderRepeatButton}" Command="Slider.IncreaseLarge" />
+                    </Track.IncreaseRepeatButton>
+                </Track>
+            </Grid>
+        </ControlTemplate>
+
+        <Style x:Key="Horizontal_Slider" TargetType="Slider">
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="SnapsToDevicePixels" Value="true" />
+            <Setter Property="OverridesDefaultStyle" Value="true" />
+            <Style.Triggers>
+                <Trigger Property="Orientation" Value="Horizontal">
+                    <Setter Property="MinHeight" Value="21" />
+                    <Setter Property="MinWidth" Value="104" />
+                    <Setter Property="Template" Value="{StaticResource Slider}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"></RowDefinition>
@@ -48,15 +126,15 @@
         </Label>
 
 
-        <Button Grid.Column="7" Background="Transparent" BorderThickness="0" Margin="5,25,5,25">
+        <Button x:Name="btnClose" Click="BtnClose_Click" Grid.Column="7" Background="Transparent" BorderThickness="0" Margin="5,25,5,25">
             <Image Stretch="Fill" Source="D:\project\Ivory RP Client\Design\cancle.png"></Image>
         </Button>
 
-        <Button Grid.Column="6" Background="Transparent" BorderThickness="0" Margin="5,25,5,25">
+        <Button x:Name="btnSettings" Click="BtnSettings_Click" Grid.Column="6" Background="Transparent" BorderThickness="0" Margin="5,25,5,25">
             <Image Stretch="Fill" Source="D:\project\Ivory RP Client\Design\settings.png"></Image>
         </Button>
 
-        <Button Grid.Column="5" Background="Transparent" BorderThickness="0" Margin="5,30,5,20">
+        <Button x:Name="btnHide" Click="BtnHide_Click" Grid.Column="5" Background="Transparent" BorderThickness="0" Margin="5,30,5,20">
             <Image Stretch="Fill" Source="D:\project\Ivory RP Client\Design\hide.png"></Image>
         </Button>
 
@@ -64,7 +142,7 @@
 
             <StackPanel Orientation="Horizontal" Margin="10">
                 <Image Source="D:\project\Ivory RP Client\Design\cart.png" Margin="3"/>
-                <Label Margin="15,0,0,0" Content="Магазин" Foreground="White" FontSize="25" FontFamily="Microsoft Sans Serif">
+                <Label Margin="15,0,0,0" Content="Магазин" Foreground="White" FontSize="25" FontFamily="COMIC SANS MS">
                     <Label.Effect>
                         <DropShadowEffect ShadowDepth="1" Color="White" Opacity="1" BlurRadius="10"/>
                     </Label.Effect>
@@ -72,39 +150,124 @@
             </StackPanel>
         </Button>
 
-        <Button BorderThickness="0" Grid.Column="5" Grid.Row="2" Background="Transparent" Margin="5,5,5,75">
+        <Button x:Name="btnYouTube" Click="BtnYouTube_Click" BorderThickness="0" Grid.Column="5" Grid.Row="2" Background="Transparent" Margin="5,5,5,75">
             <Image Stretch="Fill" Source="D:\project\Ivory RP Client\Design\YouTube.png"></Image>
         </Button>
 
-        <Button BorderThickness="0" Grid.Column="4" Grid.Row="2" Background="Transparent" Margin="5,5,5,75">
+        <Button x:Name="btnVK" Click="BtnVK_Click" BorderThickness="0" Grid.Column="4" Grid.Row="2" Background="Transparent" Margin="5,5,5,75">
             <Image Stretch="Fill" Source="D:\project\Ivory RP Client\Design\VK.png"></Image>
         </Button>
 
 
-        <Button Grid.Column="3" Grid.Row="2" BorderThickness="0"  Background="Transparent" Margin="5,5,5,75">
-            <Image Stretch="Fill" Source="D:\project\Ivory RP Client\Design\discord.png"></Image>
+        <Button x:Name="btnDiscord" Click="BtnDiscord_Click" Grid.Column="3" Grid.Row="2" BorderThickness="0"  Background="Transparent" Margin="5,5,5,75">
+            <Image Stretch="Fill" Source="D:\project\Ivory RP Client\Design\discord.png" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased"></Image>
         </Button>
 
-        <Rectangle Height="54" Width="170" Grid.Column="0" Grid.Row="3" Fill="#258BD5" Grid.RowSpan="2" Margin="35,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Rectangle Margin="86,88.4,49.6,62.6" Fill="#2F3245" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" Grid.RowSpan="2"/>
+
+        <Label Grid.Column="1" Grid.Row="3" Content="IP: 176.32.39.69:7777" Foreground="#495060" Margin="64,98.4,82.6,86.6" Grid.RowSpan="2"></Label>
+
+        <Slider  Style="{StaticResource Horizontal_Slider}" Value="4" Margin="94,17,81.6,62.6" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4"></Slider>
+
+        <Rectangle Grid.Column="1" Grid.Row="3" Fill="#277FBD" Margin="202,95.4,241.2,68.6" Grid.ColumnSpan="2" Grid.RowSpan="2">
             <Rectangle.Effect>
                 <DropShadowEffect ShadowDepth="0" Color="White" Opacity="0.6" BlurRadius="10"></DropShadowEffect>
             </Rectangle.Effect>
         </Rectangle>
-        <Label Margin="35,0,0,0" Foreground="White" FontSize="18" FontFamily="Microsoft Sans Serif" Grid.Column="0" Grid.Row="3" Grid.RowSpan="2" Content="Сервер 1" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold">
+        <Label  Foreground="White" FontSize="18" FontFamily="COMIC SANS MS" Grid.Column="1" Grid.Row="3" Content="300/500" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Grid.ColumnSpan="2" Margin="202,95.4,241.2,68.6" Width="92" Height="48" Grid.RowSpan="2">
             <Label.Effect>
                 <DropShadowEffect ShadowDepth="1" Color="White" Opacity="1" BlurRadius="10"/>
             </Label.Effect>
         </Label>
 
-        <Rectangle Grid.Column="0" Grid.Row="3" Grid.RowSpan="2" Fill=""></Rectangle>
-
-        <Label Grid.Row="3" Foreground="White" FontSize="48" FontFamily="Microsoft Sans Serif" HorizontalAlignment="Center" Content="Мониторинг" Margin="76,0.4,203.5,40" Grid.ColumnSpan="2" Width="288">
+        <Rectangle Height="54" Width="170" Grid.Column="0" Grid.Row="3" Fill="#258BD5" Grid.RowSpan="2" Margin="86,60.4,44,97.6" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Rectangle.Effect>
+                <DropShadowEffect ShadowDepth="0" Color="White" Opacity="0.6" BlurRadius="10"></DropShadowEffect>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Label Margin="127,69.4,85,101.6" Foreground="White" FontSize="18" FontFamily="COMIC SANS MS" Grid.Column="0" Grid.Row="3" Content="Сервер 1" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Height="41" Grid.RowSpan="2">
             <Label.Effect>
                 <DropShadowEffect ShadowDepth="1" Color="White" Opacity="1" BlurRadius="10"/>
             </Label.Effect>
         </Label>
 
-        
-        
+
+
+        <Label FontFamily="COMIC SANS MS" Grid.Row="2" Foreground="White" FontSize="48"  HorizontalAlignment="Center" Content="Мониторинг" Margin="80,82,185.6,64" Grid.ColumnSpan="2" Width="302" Grid.RowSpan="2">
+            <Label.Effect>
+                <DropShadowEffect ShadowDepth="1" Color="White" Opacity="1" BlurRadius="10"/>
+            </Label.Effect>
+        </Label>
+
+        <TextBox x:Name="tbNick" BorderThickness="0" VerticalContentAlignment="Center" FontSize="18" Foreground="#4E5063" Padding="30,0,0,0" Text="Введите некнейм:" Background="#333647" Grid.Column="2" Grid.Row="5" Margin="0.4,0.4,0.2,50" Loaded="TbNick_Loaded"/>
+        <Button  x:Name="btnPlay" Click="BtnPlay_Click" BorderThickness="0" Grid.Column="2" Grid.Row="4" Background="#277FBD" Margin="266.4,98,23,43" Grid.ColumnSpan="6" Grid.RowSpan="2" Style="{DynamicResource ButtonStyleC}">
+            <Button.Resources>
+                <Style x:Key="FocusVisual">
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+                <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+                <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+                <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+                <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+                <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+                <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+                <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+                <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+                <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+                <Style x:Key="ButtonStyleC" TargetType="{x:Type Button}">
+                    <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+                    <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+                    <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                    <Setter Property="Padding" Value="1"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border CornerRadius="6" x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                                    <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsDefaulted" Value="true">
+                                        <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="true">
+                                        <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                        <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="true">
+                                        <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                        <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                                    </Trigger>
+                                    <Trigger Property="IsEnabled" Value="false">
+                                        <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                        <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                        <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Resources>
+            <Button.Effect>
+                <DropShadowEffect ShadowDepth="0" Color="White" Opacity="0.6" BlurRadius="10"/>
+            </Button.Effect>
+            <Label FontFamily="COMIC SANS MS" Content="Играть" FontSize="28" Foreground="White">
+                <Label.Effect>
+                    <DropShadowEffect Color="White" ShadowDepth="2" BlurRadius="10"></DropShadowEffect>
+                </Label.Effect>
+            </Label>
+        </Button>
+
+
     </Grid>
 </Window>
