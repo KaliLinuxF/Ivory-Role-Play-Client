@@ -81,10 +81,19 @@ namespace Ivory_Role_Play_Client
             {
                 using (var profilesKey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\SAMP",true))
                 {
+
+                    if(profilesKey.GetValue("sampexe") == null)
+                    {
+                        System.Windows.MessageBox.Show("Укажите папку с игрой в настройках!");
+                    }
+
                     profilesKey.SetValue("PlayerName", tbNick.Text);
                     System.Diagnostics.Process.Start(Path, "176.32.39.69:7777");
                 }
-
+            }
+            else
+            {
+                System.Windows.MessageBox.Show("Введите ник!");
             }
         }
 
