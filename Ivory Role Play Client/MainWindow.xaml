@@ -221,14 +221,14 @@
 
         <Label Grid.Column="1" Grid.Row="3" Content="IP: 176.32.39.69:7777" Foreground="#495060" Margin="64,98.4,82.6,86.6" Grid.RowSpan="2"></Label>
 
-        <Slider  Style="{StaticResource Horizontal_Slider}" Value="4" Margin="94,17,81.6,62.6" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4"></Slider>
+        <Slider x:Name="sPlayers"  Style="{StaticResource Horizontal_Slider}" Value="0" Minimum="0" Maximum="300" Margin="94,17,81.6,62.6" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4"></Slider>
 
         <Rectangle Grid.Column="1" Grid.Row="3" Fill="#277FBD" Margin="202,95.4,241.2,68.6" Grid.ColumnSpan="2" Grid.RowSpan="2">
             <Rectangle.Effect>
                 <DropShadowEffect ShadowDepth="0" Color="White" Opacity="0.6" BlurRadius="10"></DropShadowEffect>
             </Rectangle.Effect>
         </Rectangle>
-        <Label  Foreground="White" FontSize="18" FontFamily="COMIC SANS MS" Grid.Column="1" Grid.Row="3" Content="300/500" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Grid.ColumnSpan="2" Margin="202,95.4,241.2,68.6" Width="92" Height="48" Grid.RowSpan="2">
+        <Label x:Name="lPlayers" Foreground="White" FontSize="18" FontFamily="COMIC SANS MS" Grid.Column="1" Grid.Row="3" Content="0/300" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Grid.ColumnSpan="2" Margin="202,95.4,241.2,68.6" Width="92" Height="48" Grid.RowSpan="2">
             <Label.Effect>
                 <DropShadowEffect ShadowDepth="1" Color="White" Opacity="1" BlurRadius="10"/>
             </Label.Effect>
