@@ -159,7 +159,7 @@
         </Grid.ColumnDefinitions>
 
 
-        <Image Grid.Column="0" Grid.ColumnSpan="8" Grid.Row="0" Grid.RowSpan="6" Stretch="Fill" Source="D:\project\Ivory RP Client\Design\background1.jpg"></Image>
+        <Image Grid.Column="0" Grid.ColumnSpan="8" Grid.Row="0" Grid.RowSpan="6" Stretch="Fill" Source="https://i.imgur.com/r1b5Vyl.jpg"></Image>
         <Rectangle Opacity="0.9" Grid.Column="0" Grid.ColumnSpan="8" Grid.Row="0" Grid.RowSpan="6">
             <Rectangle.Fill>
                 <LinearGradientBrush StartPoint="0,2" EndPoint="0,0">
@@ -181,21 +181,21 @@
 
 
         <Button x:Name="btnClose" Click="BtnClose_Click" Grid.Column="7" Background="Transparent" BorderThickness="0" Margin="5,25,5,25">
-            <Image Stretch="Fill" Source="D:\project\Ivory RP Client\Design\cancle.png"></Image>
+            <Image Stretch="Fill" Source="https://i.imgur.com/5iENCUv.png"></Image>
         </Button>
 
         <Button x:Name="btnSettings" Click="BtnSettings_Click" Grid.Column="6" Background="Transparent" BorderThickness="0" Margin="5,25,5,25">
-            <Image Stretch="Fill" Source="D:\project\Ivory RP Client\Design\settings.png"></Image>
+            <Image Stretch="Fill" Source="https://i.imgur.com/5opfI79.png"></Image>
         </Button>
 
         <Button x:Name="btnHide" Click="BtnHide_Click" Grid.Column="5" Background="Transparent" BorderThickness="0" Margin="10.4,30,4.6,20.4">
-            <Image Stretch="Fill" Source="D:\project\Ivory RP Client\Design\hide.png"></Image>
+            <Image Stretch="Fill" Source="https://i.imgur.com/4MkolUE.png"></Image>
         </Button>
 
         <Button x:Name="btnStore" Click="BtnStore_Click" Background="#FCBA30" Grid.Column="0" Grid.Row="2" Margin="80,0,0,40">
 
             <StackPanel Orientation="Horizontal" Margin="10">
-                <Image Source="D:\project\Ivory RP Client\Design\cart.png" Margin="3"/>
+                <Image Source="https://i.imgur.com/2hC6grU.png" Margin="3"/>
                 <Label Margin="15,0,0,0" Content="Магазин" Foreground="White" FontSize="25" FontFamily="COMIC SANS MS">
                     <Label.Effect>
                         <DropShadowEffect ShadowDepth="1" Color="White" Opacity="1" BlurRadius="10"/>
@@ -205,16 +205,16 @@
         </Button>
 
         <Button x:Name="btnYouTube" Click="BtnYouTube_Click" BorderThickness="0" Grid.Column="5" Grid.Row="2" Background="Transparent" Margin="5,5,5,75">
-            <Image Stretch="Fill" Source="D:\project\Ivory RP Client\Design\YouTube.png"></Image>
+            <Image Stretch="Fill" Source="https://i.imgur.com/apViESA.png"></Image>
         </Button>
 
         <Button x:Name="btnVK" Click="BtnVK_Click" BorderThickness="0" Grid.Column="4" Grid.Row="2" Background="Transparent" Margin="5,5,5,75">
-            <Image Stretch="Fill" Source="D:\project\Ivory RP Client\Design\VK.png"></Image>
+            <Image Stretch="Fill" Source="https://i.imgur.com/bP0sGOE.png"></Image>
         </Button>
 
 
         <Button x:Name="btnDiscord" Click="BtnDiscord_Click" Grid.Column="3" Grid.Row="2" BorderThickness="0"  Background="Transparent" Margin="5,5,5,75">
-            <Image Stretch="Fill" Source="D:\project\Ivory RP Client\Design\discord.png" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased"></Image>
+            <Image Stretch="Fill" Source="https://i.imgur.com/U41Erta.png" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased"></Image>
         </Button>
 
         <Rectangle Margin="86,88.4,49.6,62.6" Fill="#2F3245" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" Grid.RowSpan="2"/>
